@@ -1,7 +1,7 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Header, Footer, Account, About, Generate } from "./screens";
-import { Navbar } from "./components";
+import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
 
 function App() {
@@ -12,12 +12,15 @@ function App() {
           <Navbar />
           <Header />
         </div>
-        <Switch>
-          <Route path="/generate" component={Generate} />
-          <Route path="/about" component={About} />
-          <Route path="/account" component={Account} />
+        <Generate />
+        <About />
+        <Account />
+        {/* <Routes>
+          <Route path="/generate" element={<Generate />} />
+          <Route path="/about" component={<About />} />
+          <Route path="/account" component={<Account />} />
           <Route path="/" exact />
-        </Switch>
+        </Routes> */}
         <Footer />
       </div>
     </Router>
