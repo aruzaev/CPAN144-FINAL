@@ -1,0 +1,31 @@
+.search-bar-container {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: top 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  z-index: 1000; /* above index */
+  box-shadow: none;
+}
+
+.search-bar-container.active {
+  top: 30%; /*where search bar will be when active */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar {
+  width: 200px;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  transition: width 0.3s ease-in-out;
+}
+
+.search-bar::placeholder {
+  color: #aaa;
+}
+
+.search-bar:focus {
+  width: 250px;
+}

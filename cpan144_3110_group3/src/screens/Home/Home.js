@@ -16,7 +16,7 @@ function Home() {
         </div>
       </nav>
       <div className="main-content">
-        <div className="search-section">
+        {/* <div className="search-section">
           <div className="search-container">
             <input
               type="text"
@@ -25,7 +25,7 @@ function Home() {
             />
             <i className="search-icon"></i>
           </div>
-        </div>
+        </div> */}
         <div className="thumbnail-section">
           <div className="thumbnail">Recent</div>
           <div className="thumbnail"></div>
