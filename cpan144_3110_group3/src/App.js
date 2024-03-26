@@ -9,7 +9,11 @@ function App() {
   return (
     <Router>
       <div className="App">
+<<<<<<< HEAD
         <Home />
+=======
+        <h2>hello</h2>
+>>>>>>> d367e9d88e5b569bf1dd69b88eb9057bfefbea0e
         <div className="header_app">
           <Navbar />
           <Header />
