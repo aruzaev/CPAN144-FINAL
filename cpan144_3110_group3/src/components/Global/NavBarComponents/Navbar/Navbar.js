@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import SearchBar from "../SearchBar/SearchBar";
 import logo from "../../../../assets/logo.png";
+import { DropdownButton, Dropdown } from "react-bootstrap";
 
 const Navbar = () => {
   const [searchActive, setSearchActive] = useState(false);
@@ -24,9 +25,18 @@ const Navbar = () => {
               <img src={logo} alt="logo" />
             </a>
           </div>
+
           <div className="navbar__links-container">
             <div className="navbar__links-container1">
-              <a href="#categories">Categories</a>
+              {/* <Dropdown>
+                <Dropdown.Toggle variant="success">Open Menu</Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#">Home Page</Dropdown.Item>
+                  <Dropdown.Item href="#">Settings</Dropdown.Item>
+                  <Dropdown.Item href="#">Logout</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown> */}
+              {/* <a href="#categories">Categories</a> */}
             </div>
           </div>
         </div>

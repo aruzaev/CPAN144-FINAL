@@ -29,6 +29,7 @@
 .navbar__right {
   display: flex;
   align-items: center;
+  margin-right: 20px;
 }
 
 .navbar__links-container2 {
