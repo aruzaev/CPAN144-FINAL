@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
 
-function Home() {
+function Homes() {
   return (
     <div className="container">
       <nav className="navbar">
@@ -37,4 +37,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Homes;
