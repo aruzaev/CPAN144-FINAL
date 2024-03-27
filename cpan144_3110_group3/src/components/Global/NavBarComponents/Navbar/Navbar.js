@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import "./Navbar.css";
 import SearchBar from "../SearchBar/SearchBar";
 import logo from "../../../../assets/logo.png";
