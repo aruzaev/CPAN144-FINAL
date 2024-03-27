@@ -1,16 +1,18 @@
 .search-bar-container {
-  position: fixed;
-  top: 2%;
+  position: absolute;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  transition: top 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  z-index: 1000; /* above index */
+  transform: translate(-50%, -50%);
+  transition: top 0.3s ease-in-out, transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+  z-index: 1000;
   box-shadow: none;
 }
 
 .search-bar-container.active {
-  top: 30%; /*where search bar will be when active */
+  top: 500%;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translate(-50%, -50%) scale(1.5);
 }
 
 .search-bar {

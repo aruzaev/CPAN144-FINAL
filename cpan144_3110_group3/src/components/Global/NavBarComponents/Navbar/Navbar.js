@@ -31,11 +31,13 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <SearchBar
-          onSearch={handleSearch}
-          onToggle={toggleSearchActive}
-          isActive={searchActive}
-        />
+        <div className="search__bar-container">
+          <SearchBar
+            onSearch={handleSearch}
+            onToggle={toggleSearchActive}
+            isActive={searchActive}
+          />
+        </div>
         <div className="navbar__right">
           <div className="navbar__links-container2">
             <a href="#account">Account</a>
