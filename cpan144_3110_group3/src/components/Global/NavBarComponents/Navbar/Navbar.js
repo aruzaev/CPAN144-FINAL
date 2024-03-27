@@ -15,20 +15,24 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar">
-      <div className="logo">LOGO</div>
-      <SearchBar
-        onSearch={handleSearch}
-        onToggle={toggleSearchActive}
-        isActive={searchActive}
-      />
-      <div className="nav-items">
-        <div className="nav-item">Home</div>
-        <div className="nav-item">Categories</div>
-        <div className="nav-item">Account</div>
-        <div className="nav-item">About</div>
-      </div>
-    </nav>
+    // <nav className="navbar">
+    //   <div className="logo">LOGO</div>
+    //   <SearchBar
+    //     onSearch={handleSearch}
+    //     onToggle={toggleSearchActive}
+    //     isActive={searchActive}
+    //   />
+    //   <div className="nav-items">
+    //     <div className="nav-item">Home</div>
+    //     <div className="nav-item">Categories</div>
+    //     <div className="nav-item">Account</div>
+    //     <div className="nav-item">About</div>
+    //   </div>
+    // </nav>
+
+    <div>
+      <h1>Navbar</h1>
+    </div>
   );
 };
 
