@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import "./Navbar.css";
 import SearchBar from "../SearchBar/SearchBar";
 
@@ -22,7 +23,7 @@ const Navbar = () => {
     //     onToggle={toggleSearchActive}
     //     isActive={searchActive}
     //   />
-    //   <div className="nav-items">
+    // //   <div className="nav-items">
     //     <div className="nav-item">Home</div>
     //     <div className="nav-item">Categories</div>
     //     <div className="nav-item">Account</div>
@@ -31,7 +32,14 @@ const Navbar = () => {
     // </nav>
 
     <div>
-      <h1>Navbar</h1>
+      <nav className="navbar__main">
+        <div className="navbar__links">
+          <div className="nav-item">Home</div>
+          <div className="nav-item">Categories</div>
+          <div className="nav-item">Account</div>
+          <div className="nav-item">About</div>
+        </div>
+      </nav>
     </div>
   );
 };
