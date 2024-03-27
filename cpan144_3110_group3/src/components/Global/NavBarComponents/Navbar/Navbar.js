@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import "./Navbar.css";
 import SearchBar from "../SearchBar/SearchBar";
+import logo from "../../../../assets/logo.png";
 
 const Navbar = () => {
   const [searchActive, setSearchActive] = useState(false);
@@ -16,28 +17,34 @@ const Navbar = () => {
   };
 
   return (
-    // <nav className="navbar">
-    //   <div className="logo">LOGO</div>
-    //   <SearchBar
-    //     onSearch={handleSearch}
-    //     onToggle={toggleSearchActive}
-    //     isActive={searchActive}
-    //   />
-    // //   <div className="nav-items">
-    //     <div className="nav-item">Home</div>
-    //     <div className="nav-item">Categories</div>
-    //     <div className="nav-item">Account</div>
-    //     <div className="nav-item">About</div>
-    //   </div>
-    // </nav>
-
     <div>
       <nav className="navbar__main">
-        <div className="navbar__links">
-          <div className="nav-item">Home</div>
-          <div className="nav-item">Categories</div>
-          <div className="nav-item">Account</div>
-          <div className="nav-item">About</div>
+        <div className="navbar__left">
+          <div className="navbar__logo">
+            <a href="#home">
+              <img src={logo} alt="logo" />
+            </a>
+          </div>
+          <div className="navbar__links-container">
+            <div className="navbar__links-container1">
+              <a href="#categories">Categories</a>
+            </div>
+          </div>
+        </div>
+        <SearchBar
+          onSearch={handleSearch}
+          onToggle={toggleSearchActive}
+          isActive={searchActive}
+        />
+        <div className="navbar__right">
+          <div className="navbar__links-container2">
+            <a href="#account">Account</a>
+            <a href="#about">About</a>
+          </div>
+          <div className="navbar__sign">
+            <a href="#signin">Sign in</a>
+            <button type="button">Sign up</button>
+          </div>
         </div>
       </nav>
     </div>
