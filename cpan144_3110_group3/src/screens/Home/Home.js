@@ -15,28 +15,23 @@ function Homes() {
     //       </div>
     //     </div>
     //   </nav>
-    //   <div className="main-content">
-    //     {/* <div className="search-section">
-    //       <div className="search-container">
-    //         <input
-    //           type="text"
-    //           className="search-input"
-    //           placeholder="Generate"
-    //         />
-    //         <i className="search-icon"></i>
-    //       </div>
-    //     </div> */}
-    //     <div className="thumbnail-section">
-    //       <div className="thumbnail">Recent</div>
-    //       <div className="thumbnail"></div>
-    //       <div className="thumbnail"></div>
-    //       <div className="thumbnail"></div>
-    //     </div>
-    //   </div>
-    // </div>
-
-    <div>
-      <h1>Home</h1>
+    <div className="main-content">
+      {/* <div className="search-section">
+          <div className="search-container">
+            <input
+              type="text"
+              className="search-input"
+              placeholder="Generate"
+            />
+            <i className="search-icon"></i>
+          </div>
+        </div> */}
+      <div className="thumbnail-section">
+        <div className="thumbnail">Recent</div>
+        <div className="thumbnail"></div>
+        <div className="thumbnail"></div>
+        <div className="thumbnail"></div>
+      </div>
     </div>
   );
 }
