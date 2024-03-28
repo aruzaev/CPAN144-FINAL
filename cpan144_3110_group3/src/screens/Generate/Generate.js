@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom"; // Import useLocation hook
 import handleSearch from "../../components/Global/unsplashAPI/unsplash";
 import "./Generate.css";
 
-const Generate = () => {
-  const [term, setTerm] = useState('');
-  const [images, setImages] = useState([]);
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 
-  const handleButtonClick = () => {
-    handleSearch(term, setImages);
-  };
+const Generate = () => {
+  const [images, setImages] = useState([]);
+  const query = useQuery();
+  const searchTerm = query.get("search"); // Get the search term from query parameters
+
+  useEffect(() => {
+    if (searchTerm) {
+      handleSearch(searchTerm, setImages);
+    }
+  }, [searchTerm]); // Rerun the search when searchTerm changes
 
   return (
     <div className="generate-box-main">
@@ -18,17 +26,6 @@ const Generate = () => {
           <img key={image.id} src={image.urls.regular} alt="random" />
         ))}
       </div>
-      <div className="input-box">
-        <input
-          type="text"
-          placeholder="Search for images..."
-          value={term}
-          onChange={(e) => setTerm(e.target.value)}
-        />
-        <br />
-        <button onClick={handleButtonClick}>Find</button>
-      </div>
-
     </div>
   );
 };

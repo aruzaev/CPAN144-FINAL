@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Use useNavigate instead of useHistory
 import "./SearchBar.css";
 
-const SearchBar = ({ onSearch, onToggle, isActive }) => {
+const SearchBar = ({ onToggle, isActive }) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate(); // Use the useNavigate hook for navigation
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
@@ -10,15 +12,15 @@ const SearchBar = ({ onSearch, onToggle, isActive }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSearch(searchTerm);
+    navigate(`/generate?search=${encodeURIComponent(searchTerm)}`); // Use navigate for redirection
   };
 
   const handleFocus = () => {
-    onToggle(); // toggle from navbar
+    onToggle(); // Toggle from navbar
   };
 
   const handleBlur = () => {
-    onToggle(); // toggle from navbar
+    onToggle(); // Toggle from navbar
   };
 
   return (
