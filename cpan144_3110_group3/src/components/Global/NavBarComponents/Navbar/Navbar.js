@@ -17,6 +17,8 @@ const Navbar = () => {
   };
 
   return (
+    // TODO: ADD SMALL SCREEN HAMBURGER MENU BAR
+    // FIX DROPDOWM
     <div>
       <nav className="navbar__main">
         <div className="navbar__left">
@@ -36,7 +38,7 @@ const Navbar = () => {
                   <Dropdown.Item href="#">Logout</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown> */}
-              {/* <a href="#categories">Categories</a> */}
+              <a href="#categories">Categories</a>
             </div>
           </div>
         </div>

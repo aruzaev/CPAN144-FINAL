@@ -1,39 +1,69 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./Home.css";
 
-function Homes() {
+function Home() {
+  const wpRef = useRef(null);
+
+  useEffect(() => {
+    const copy = wpRef.current.cloneNode(true);
+    wpRef.current.parentNode.appendChild(copy);
+  }, []);
+
   return (
-    // <div className="container">
-    //   <nav className="navbar">
-    //     <div className="logo">LOGO</div>
-    //     <div className="menu">
-    //       <div className="menu-item">Home Page</div>
-    //       <div className="menu-item dropdown">Categories</div>
-    //       <div className="menu-right">
-    //         <div className="menu-item">Account</div>
-    //         <div className="menu-item">About</div>
-    //       </div>
-    //     </div>
-    //   </nav>
     <div className="main-content">
-      {/* <div className="search-section">
-          <div className="search-container">
-            <input
-              type="text"
-              className="search-input"
-              placeholder="Generate"
-            />
-            <i className="search-icon"></i>
-          </div>
-        </div> */}
-      <div className="thumbnail-section">
-        <div className="thumbnail">Recent</div>
-        <div className="thumbnail"></div>
-        <div className="thumbnail"></div>
-        <div className="thumbnail"></div>
+      <h2>Popular Wallpapers</h2>
+      <div className="slider">
+        <div className="wp-slide" ref={wpRef}>
+          <img
+            src="https://pyxis.nymag.com/v1/imgs/d57/0bb/cacd6910aad2dcff81f39e5823a8737c7b-24-bongo-cat.rsocial.w1200.jpg"
+            height="500"
+            width="250"
+            alt=""
+          />
+        </div>
+        <div className="wp-slide">
+          <img
+            src="https://pyxis.nymag.com/v1/imgs/d57/0bb/cacd6910aad2dcff81f39e5823a8737c7b-24-bongo-cat.rsocial.w1200.jpg"
+            height="500"
+            width="250"
+            alt=""
+          />
+        </div>
+        <div className="wp-slide">
+          <img
+            src="https://pyxis.nymag.com/v1/imgs/d57/0bb/cacd6910aad2dcff81f39e5823a8737c7b-24-bongo-cat.rsocial.w1200.jpg"
+            height="500"
+            width="250"
+            alt=""
+          />
+        </div>
+        <div className="wp-slide">
+          <img
+            src="https://pyxis.nymag.com/v1/imgs/d57/0bb/cacd6910aad2dcff81f39e5823a8737c7b-24-bongo-cat.rsocial.w1200.jpg"
+            height="500"
+            width="250"
+            alt=""
+          />
+        </div>
+        <div className="wp-slide">
+          <img
+            src="https://pyxis.nymag.com/v1/imgs/d57/0bb/cacd6910aad2dcff81f39e5823a8737c7b-24-bongo-cat.rsocial.w1200.jpg"
+            height="500"
+            width="250"
+            alt=""
+          />
+        </div>
+        <div className="wp-slide">
+          <img
+            src="https://pyxis.nymag.com/v1/imgs/d57/0bb/cacd6910aad2dcff81f39e5823a8737c7b-24-bongo-cat.rsocial.w1200.jpg"
+            height="500"
+            width="250"
+            alt=""
+          />
+        </div>
       </div>
     </div>
   );
 }
 
-export default Homes;
+export default Home;
