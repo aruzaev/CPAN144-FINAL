@@ -13,7 +13,7 @@ function App() {
         <div className="gradient__bg">
           <Navbar />
         </div>
-        <RecentSearches />
+        {/* <RecentSearches /> */}
         <Routes>
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />

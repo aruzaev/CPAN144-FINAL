@@ -8,15 +8,19 @@ function useQuery() {
 }
 
 const Generate = () => {
-  const [images, setImages] = useState([]);
   const query = useQuery();
-  const searchTerm = query.get("search"); // Get the search term from query parameters
+  const [term, setTerm] = useState(query.get("search") || '');
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
-    if (searchTerm) {
-      handleSearch(searchTerm, setImages);
+    if (term) {
+      handleSearch(term, setImages);
     }
-  }, [searchTerm]); // Rerun the search when searchTerm changes
+  }, [term]);
+
+  const handleButtonClick = () => {
+    handleSearch(term, setImages);
+  };
 
   return (
     <div className="generate-box-main">
@@ -25,6 +29,16 @@ const Generate = () => {
         {images.map((image) => (
           <img key={image.id} src={image.urls.regular} alt="random" />
         ))}
+      </div>
+      <div className="input-box">
+        <input
+          type="text"
+          placeholder="Search for images..."
+          value={term}
+          onChange={(e) => setTerm(e.target.value)}
+        />
+        <br />
+        <button onClick={handleButtonClick}>Find</button>
       </div>
     </div>
   );
