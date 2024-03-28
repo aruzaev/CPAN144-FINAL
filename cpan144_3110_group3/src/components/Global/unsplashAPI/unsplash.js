@@ -10,6 +10,7 @@ const handleSearch = async (searchTerm, setImages) => {
     console.log(searchTerm)
     if (searchTerm.trim() !== '') {
         const url = `https://api.unsplash.com/search/photos?query=${searchTerm}&client_id=${unsplashClientId}`;
+        console.log(url)
         try {
             const response = await axios.get(url);
             const randomIndex = Math.floor(Math.random() * response.data.results.length);
