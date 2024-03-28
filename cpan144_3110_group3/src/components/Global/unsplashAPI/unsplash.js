@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const unsplashClientId = 'asdadsM';
+const unsplashClientId = 'wLbZLTACAvzZiBT2ZRSVAyX5yTOO-dc-kg15wcG1AQM';
 
 //Returns single image
 const handleSearch = async (searchTerm, setImages) => {
