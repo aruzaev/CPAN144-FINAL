@@ -1,8 +1,16 @@
-import React, { useEffect, useRef } from "react";
 import "./Home.css";
+import React, { useState, useEffect, useRef } from "react";
 
 function Home() {
+  const [recentSearches, setRecentSearches] = useState([]);
   const wpRef = useRef(null);
+
+  useEffect(() => {
+    // Fetch or initialize your recent searches here
+    // For example, from local storage or an API
+    const searches = ["Example Search 1", "Example Search 2"]; // Placeholder
+    setRecentSearches(searches);
+  }, []);
 
   useEffect(() => {
     const copy = wpRef.current.cloneNode(true);
