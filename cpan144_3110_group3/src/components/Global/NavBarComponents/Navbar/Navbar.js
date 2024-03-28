@@ -26,7 +26,15 @@ const Navbar = () => {
         </div>
 
         <div className="navbar__links-container">
-          <div className="navbar__links-container1">
+            <div className="navbar__links-container1">
+              {/* <Dropdown>
+                <Dropdown.Toggle variant="success">Open Menu</Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#">Home Page</Dropdown.Item>
+                  <Dropdown.Item href="#">Settings</Dropdown.Item>
+                  <Dropdown.Item href="#">Logout</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown> */}
             <Link to="/categories">Categories</Link>
           </div>
         </div>
