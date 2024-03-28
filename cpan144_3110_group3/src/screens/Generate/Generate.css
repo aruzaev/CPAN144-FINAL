@@ -1,0 +1,17 @@
+.generate-box-main{
+    text-align: center;
+    padding: 20px;
+}
+
+.image-box img{
+    border: 9px solid white; /* 2px solid black border */
+    border-radius: 5px; /* Optional: adds rounded corners */
+}
+
+.input-box *{
+    color: black;
+}
+
+.input-box button{
+    padding: 5px;
+}
