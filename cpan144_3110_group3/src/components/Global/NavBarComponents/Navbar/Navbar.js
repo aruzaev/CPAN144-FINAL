@@ -26,8 +26,8 @@ const Navbar = () => {
         </div>
 
         <div className="navbar__links-container">
-            <div className="navbar__links-container1">
-              {/* <Dropdown>
+          <div className="navbar__links-container1">
+            {/* <Dropdown>
                 <Dropdown.Toggle variant="success">Open Menu</Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item href="#">Home Page</Dropdown.Item>
@@ -38,7 +38,12 @@ const Navbar = () => {
             <Link to="/categories">Categories</Link>
           </div>
         </div>
+
+        <div className="navbar__generate">
+          <Link to="/generate">Generate</Link>
+        </div>
       </div>
+      
       <div className="search__bar-container">
         <SearchBar
           onSearch={handleSearch}
