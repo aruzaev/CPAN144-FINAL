@@ -4,7 +4,6 @@ import { Header, Home, Footer, Account, About, Generate } from "./screens";
 import NotFound from "./screens/NotFound/NotFound";
 import Navbar from "./components/Global/NavBarComponents/Navbar/Navbar";
 import "./App.css";
-import RecentSearches from "./components/Global/RecentSearches/RecentSearches";
 
 function App() {
   return (
@@ -13,7 +12,6 @@ function App() {
         <div className="gradient__bg">
           <Navbar />
         </div>
-        {/* <RecentSearches /> */}
         <Routes>
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
