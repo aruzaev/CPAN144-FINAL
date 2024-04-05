@@ -20,6 +20,11 @@ const handleSearch = async (searchTerm, resolution, setImages) => {
       console.log(response);
       console.log("All good :)");
       loading = false;
+
+      // Get the statistics of the image
+      const statsUrl = `https://api.unsplash.com/photos/${image[0].id}/statistics?client_id=${unsplashClientId}`;
+      const statsResponse = await axios.get(statsUrl);
+      image[0].statistics = statsResponse.data; // Add the statistics to the image object
     } catch (error) {
       console.error(`:( ${error}`);
       loading = false;
