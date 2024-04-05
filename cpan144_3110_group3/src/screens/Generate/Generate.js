@@ -10,20 +10,25 @@ function useQuery() {
 const Generate = () => {
   const navigate = useNavigate(); // Use useNavigate hook
   const query = useQuery();
-  const [term, setTerm] = useState(query.get("search") || '');
+  const [term, setTerm] = useState(query.get("search") || "");
+  const [resolution, setResolution] = useState(
+    query.get("resolution") || "landscape"
+  );
   const [images, setImages] = useState([]);
 
   useEffect(() => {
     if (term) {
-      handleSearch(term, setImages);
+      handleSearch(term, resolution, setImages);
     }
-  }, [term]);
+  }, [term, resolution]);
 
   const handleButtonClick = (e) => {
     e.preventDefault();
     const searchValue = e.currentTarget.elements.searchTerm.value;
+    const resolutionValue = e.currentTarget.elements.resolution.value;
     setTerm(searchValue);
-    navigate(`?search=${searchValue}`);
+    setResolution(resolutionValue);
+    navigate(`?search=${searchValue}&resolution=${resolutionValue}`);
   };
 
   return (
@@ -42,6 +47,11 @@ const Generate = () => {
             placeholder="Search for images..."
             defaultValue={term}
           />
+          <br />
+          <select id="resolution" defaultValue={resolution}>
+            <option value="landscape">Desktop</option>
+            <option value="portrait">Mobile</option>
+          </select>
           <br />
           <button type="submit">Search</button>
         </div>
