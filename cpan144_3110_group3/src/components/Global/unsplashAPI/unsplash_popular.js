@@ -1,50 +1,30 @@
-import { createApi } from "unsplash-js"; //npm i --save unsplash-js
+import { createApi } from "unsplash-js";
 
 const unsplash = createApi({
   accessKey: 'wLbZLTACAvzZiBT2ZRSVAyX5yTOO-dc-kg15wcG1AQM',
 });
 
-const handleReqest = async (searchTerm, setImages, orientation) => {
-  let image = null;
+const handleSearch = async () => {
+  let images = [];
+  try {
+    const response = await unsplash.photos.list({
+      orderBy: 'popular',
+      perPage: 20,
+      orientation: 'landscape'
+    });
 
-  console.log(searchTerm);
-  if (searchTerm.trim() !== '') {
-    try {
-      const response = await unsplash.search.getPhotos({
-        query: searchTerm,
-        orientation: orientation
-      });
-      if (response.errors) {
-        console.log('Error occurred: ', response.errors[0]);
-      } else {
-        const randomIndex = Math.floor(Math.random() * response.response.results.length);
-        image = [response.response.results[randomIndex]]; // gets a random image in the array
-        console.log('All good :)');
-        loading = false;
-      }
-    } catch (error) {
-      console.error(`:( ${error}`);
-      loading = false;
+    if (!response.errors) {
+      images = response.response.results;
+      console.log(images)
+      console.log('All good :)');
+    } else {
+      console.log('Error occurred: ', response.errors[0]);
     }
-  } else {
-    console.log('Search term is blank, not making API call.');
-    loading = false;
-    image = [];
+  } catch (error) {
+    console.error(`:( ${error}`);
   }
 
-  return (
-    <div>
-      {
-        loading ? (
-          <Spinner animation="border" role="status">
-            <span className="visually-hidden">Loading....</span>
-          </Spinner>
-        ) : (
-          setImages(image)
-        )
-      }
-    </div>
-  );
+  return images;
 };
 
-export default handleReqest;
+export default handleSearch;
