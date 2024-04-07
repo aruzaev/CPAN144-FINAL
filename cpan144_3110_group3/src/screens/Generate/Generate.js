@@ -64,9 +64,7 @@ const Generate = () => {
                 <option value="portrait">Portrait</option>
                 <option value="squarish">Squarish</option>
               </Form.Select>
-              <Button variant="outline-secondary" type="submit">
-                Search
-              </Button>
+              <Button type="submit">Search</Button>
             </InputGroup>
           </Form>
           <div className="image-box">
@@ -97,51 +95,54 @@ const Generate = () => {
                       </Card.Text>
                       <Card.Text>{image.downloads}</Card.Text>
                       <Card.Text></Card.Text>
-                      <Button
-                        variant="success"
-                        href={image.links.download}
-                        target="_blank"
-                        style={{
-                          fontWeight: "bold", // Makes the text bold.
-                          fontSize: "1.25rem", // Increases the font size for bigger text.
-                          padding: "10px 20px", // Increases padding for a larger button.
-                          backgroundColor: "green",
-                        }}
-                      >
-                        Download
-                      </Button>
+                      <div className="socials-container">
+                        {/* Conditional Instagram Icon/Button */}
+                        {image.user.social &&
+                          image.user.social.instagram_username && (
+                            <a
+                              href={`https://www.instagram.com/${image.user.social.instagram_username}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="icon-button"
+                            >
+                              <Button className="dark-button btn-lg social-button">
+                                <Icon.Instagram />
+                              </Button>
+                            </a>
+                          )}
 
-                      {/* Conditional Instagram Icon/Button */}
-                      {image.user.social &&
-                        image.user.social.instagram_username && (
-                          <a
-                            href={`https://www.instagram.com/${image.user.social.instagram_username}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="icon-button"
-                          >
-                            <Button className="dark-button btn-lg">
-                              <Icon.Instagram />
-                            </Button>
-                          </a>
-                        )}
-
-                      {/* Conditional Twitter Icon/Button */}
-                      {image.user.social &&
-                        image.user.social.twitter_username && (
-                          <a
-                            href={`https://www.twitter.com/${image.user.social.twitter_username}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="icon-button"
-                          >
-                            <Button className="dark-button btn-lg">
-                              <Icon.Twitter />
-                            </Button>
-                          </a>
-                        )}
+                        {/* Conditional Twitter Icon/Button */}
+                        {image.user.social &&
+                          image.user.social.twitter_username && (
+                            <a
+                              href={`https://www.twitter.com/${image.user.social.twitter_username}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="icon-button"
+                            >
+                              <Button className="dark-button btn-lg social-button">
+                                <Icon.Twitter />
+                              </Button>
+                            </a>
+                          )}
+                      </div>
                     </Card.Body>
                   </Card>
+                </div>
+                <div className="button-container">
+                  <Button
+                    className="download-button"
+                    href={image.links.download}
+                    target="_blank"
+                    style={{
+                      fontWeight: "bold", // Makes the text bold.
+                      fontSize: "1.25rem", // Increases the font size for bigger text.
+                      padding: "10px 20px", // Increases padding for a larger button.
+                      backgroundColor: "green",
+                    }}
+                  >
+                    Download
+                  </Button>
                 </div>
               </div>
             ))}

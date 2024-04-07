@@ -3,13 +3,6 @@
   padding: 20px;
 }
 
-.image-info-container {
-  display: flex;
-  flex-direction: column; /* Stack items vertically */
-  align-items: center; /* Center items horizontally */
-  margin-bottom: 20px;
-}
-
 .image-container {
   width: 100%; /* Set width to 100% */
 }
@@ -17,6 +10,9 @@
 .info-container {
   margin-top: 10px; /* Add margin to separate image and info */
   text-align: center; /* Center content horizontally */
+  display: flex;
+  justify-content: center;
+  font-size: 2vh;
 }
 
 .image-box img {
@@ -35,34 +31,36 @@
   padding: 5px;
 }
 
-.card {
-  margin-top: 20px;
+.social-button {
+  margin-left: 10px;
 }
 
-.badge {
-  margin-right: 5px;
+.socials-container {
+  margin-top: 10px;
+}
+
+.button-container {
+  margin-top: 50px;
 }
 
 .download-button {
+  margin-top: 10px;
+  padding-top: 10px;
   background-color: #28a745;
   border-color: #28a745;
   color: white;
-  border-radius: 50px;
   size: 50px;
+  border: 2px solid black;
 }
 .download-button:hover {
   background-color: #218838;
   border-color: #1e7e34;
 }
 
-.inline-heading {
-  display: inline-block;
-  margin-right: 10px;
-}
 .dark-button {
   background-color: #343a40;
   color: #ffffff;
-  border-color: #343a40;
+  border: none;
 }
 
 .dark-button:hover {
