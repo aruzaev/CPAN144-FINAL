@@ -14,10 +14,11 @@
 .image-box img {
   border: 9px solid white;
   border-radius: 5px;
-  width: 100%;
+  max-width: 100%; /* Change width to max-width */
   height: auto;
   object-fit: cover;
 }
+
 
 .input-box * {
   color: black;
