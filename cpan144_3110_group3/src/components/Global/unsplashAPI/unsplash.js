@@ -1,49 +1,50 @@
 import { Spinner } from "react-bootstrap";
-import axios from "axios";
+import { createApi } from "unsplash-js"; //npm i --save unsplash-js
 
-const unsplashClientId = "wLbZLTACAvzZiBT2ZRSVAyX5yTOO-dc-kg15wcG1AQM";
-let image = null;
-let loading = true;
+const unsplash = createApi({
+  accessKey: 'wLbZLTACAvzZiBT2ZRSVAyX5yTOO-dc-kg15wcG1AQM',
+});
 
-//Returns single image
-const handleSearch = async (searchTerm, resolution, setImages) => {
+const handleSearch = async (searchTerm, setImages, orientation) => {
+  let image = null;
+  let loading = true;
+
   console.log(searchTerm);
-  if (searchTerm.trim() !== "") {
-    const url = `https://api.unsplash.com/search/photos?query=${searchTerm}&orientation=${resolution}&client_id=${unsplashClientId}`;
-    console.log(url);
+  if (searchTerm.trim() !== '') {
     try {
-      const response = await axios.get(url);
-      const randomIndex = Math.floor(
-        Math.random() * response.data.results.length
-      );
-      image = [response.data.results[randomIndex]]; //gets a random image in the array
-      console.log(response);
-      console.log("All good :)");
-      loading = false;
-
-      // Get the statistics of the image
-      const statsUrl = `https://api.unsplash.com/photos/${image[0].id}/statistics?client_id=${unsplashClientId}`;
-      const statsResponse = await axios.get(statsUrl);
-      image[0].statistics = statsResponse.data; // Add the statistics to the image object
+      const response = await unsplash.search.getPhotos({
+        query: searchTerm,
+        orientation: orientation
+      });
+      if (response.errors) {
+        console.log('Error occurred: ', response.errors[0]);
+      } else {
+        const randomIndex = Math.floor(Math.random() * response.response.results.length);
+        image = [response.response.results[randomIndex]]; // gets a random image in the array
+        console.log('All good :)');
+        loading = false;
+      }
     } catch (error) {
       console.error(`:( ${error}`);
       loading = false;
     }
   } else {
-    console.log("Search term is blank, not making API call.");
+    console.log('Search term is blank, not making API call.');
     loading = false;
     image = [];
   }
 
   return (
     <div>
-      {loading ? (
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading....</span>
-        </Spinner>
-      ) : (
-        setImages(image)
-      )}
+      {
+        loading ? (
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading....</span>
+          </Spinner>
+        ) : (
+          setImages(image)
+        )
+      }
     </div>
   );
 };
