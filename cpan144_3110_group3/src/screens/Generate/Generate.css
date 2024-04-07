@@ -3,12 +3,20 @@
   padding: 20px;
 }
 
-.image-container,
-.info-container {
+.image-info-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  margin-bottom: 20px;
+}
+
+.image-container {
+  width: 100%; /* Set width to 100% */
+}
+
+.info-container {
+  margin-top: 10px; /* Add margin to separate image and info */
+  text-align: center; /* Center content horizontally */
 }
 
 .image-box img {
@@ -18,7 +26,6 @@
   height: auto;
   object-fit: cover;
 }
-
 
 .input-box * {
   color: black;
@@ -46,4 +53,19 @@
 .download-button:hover {
   background-color: #218838;
   border-color: #1e7e34;
+}
+
+.inline-heading {
+  display: inline-block;
+  margin-right: 10px;
+}
+.dark-button {
+  background-color: #343a40;
+  color: #ffffff;
+  border-color: #343a40;
+}
+
+.dark-button:hover {
+  background-color: #23272b;
+  color: #ffffff;
 }

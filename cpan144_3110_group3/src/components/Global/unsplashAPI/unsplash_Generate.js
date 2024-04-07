@@ -2,7 +2,7 @@ import { Spinner } from "react-bootstrap";
 import { createApi } from "unsplash-js"; //npm i --save unsplash-js
 
 const unsplash = createApi({
-  accessKey: 'wLbZLTACAvzZiBT2ZRSVAyX5yTOO-dc-kg15wcG1AQM',
+  accessKey: "wLbZLTACAvzZiBT2ZRSVAyX5yTOO-dc-kg15wcG1AQM",
 });
 
 const handleSearch = async (searchTerm, setImages, orientation) => {
@@ -10,18 +10,20 @@ const handleSearch = async (searchTerm, setImages, orientation) => {
   let loading = true;
 
   console.log(searchTerm);
-  if (searchTerm.trim() !== '') {
+  if (searchTerm.trim() !== "") {
     try {
       const response = await unsplash.search.getPhotos({
         query: searchTerm,
-        orientation: orientation
+        orientation: orientation,
       });
       if (response.errors) {
-        console.log('Error occurred: ', response.errors[0]);
+        console.log("Error occurred: ", response.errors[0]);
       } else {
-        const randomIndex = Math.floor(Math.random() * response.response.results.length);
+        const randomIndex = Math.floor(
+          Math.random() * response.response.results.length
+        );
         image = [response.response.results[randomIndex]]; // gets a random image in the array
-        console.log('All good :)');
+        console.log("All good :)");
         loading = false;
       }
     } catch (error) {
@@ -29,22 +31,20 @@ const handleSearch = async (searchTerm, setImages, orientation) => {
       loading = false;
     }
   } else {
-    console.log('Search term is blank, not making API call.');
+    console.log("Search term is blank, not making API call.");
     loading = false;
     image = [];
   }
 
   return (
     <div>
-      {
-        loading ? (
-          <Spinner animation="border" role="status">
-            <span className="visually-hidden">Loading....</span>
-          </Spinner>
-        ) : (
-          setImages(image)
-        )
-      }
+      {loading ? (
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading....</span>
+        </Spinner>
+      ) : (
+        setImages(image)
+      )}
     </div>
   );
 };
