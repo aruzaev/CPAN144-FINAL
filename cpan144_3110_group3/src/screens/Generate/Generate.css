@@ -3,12 +3,16 @@
   padding: 20px;
 }
 
-.image-container,
+.image-container {
+  width: 100%; /* Set width to 100% */
+}
+
 .info-container {
+  margin-top: 10px; /* Add margin to separate image and info */
+  text-align: center; /* Center content horizontally */
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100%;
+  font-size: 2vh;
 }
 
 .image-box img {
@@ -19,6 +23,12 @@
   object-fit: cover;
 }
 
+.input-group {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  margin-top: 10px;
+}
 
 .input-box * {
   color: black;
@@ -28,22 +38,39 @@
   padding: 5px;
 }
 
-.card {
-  margin-top: 20px;
+.social-button {
+  margin-left: 10px;
 }
 
-.badge {
-  margin-right: 5px;
+.socials-container {
+  margin-top: 10px;
+}
+
+.button-container {
+  margin-top: 50px;
 }
 
 .download-button {
+  margin-top: 10px;
+  padding-top: 10px;
   background-color: #28a745;
   border-color: #28a745;
   color: white;
-  border-radius: 50px;
   size: 50px;
+  border: 2px solid black;
 }
 .download-button:hover {
   background-color: #218838;
   border-color: #1e7e34;
+}
+
+.dark-button {
+  background-color: #343a40;
+  color: #ffffff;
+  border: none;
+}
+
+.dark-button:hover {
+  background-color: #23272b;
+  color: #ffffff;
 }
