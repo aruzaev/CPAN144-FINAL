@@ -48,7 +48,7 @@ const Generate = () => {
         <Col xs={12} md={8}>
           <h1>Generate</h1>
           <Form onSubmit={handleButtonClick}>
-            <InputGroup className="mb-3 input-box">
+            <InputGroup className="mb-3 input-box input-group">
               <FormControl
                 id="searchTerm"
                 type="text"

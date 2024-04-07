@@ -23,6 +23,13 @@
   object-fit: cover;
 }
 
+.input-group {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  margin-top: 10px;
+}
+
 .input-box * {
   color: black;
 }
