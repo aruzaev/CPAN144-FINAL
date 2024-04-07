@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import handleSearch from "../../components/Global/unsplashAPI/unsplash";
+import handleSearch from "../../components/Global/unsplashAPI/unsplash_Generate";
 import {
   Button,
   Form,
