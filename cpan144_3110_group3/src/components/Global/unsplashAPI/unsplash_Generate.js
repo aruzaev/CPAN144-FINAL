@@ -23,6 +23,7 @@ const handleSearch = async (searchTerm, setImages, orientation) => {
           Math.random() * response.response.results.length
         );
         image = [response.response.results[randomIndex]]; // gets a random image in the array
+        console.log(image);
         console.log("All good :)");
         loading = false;
       }

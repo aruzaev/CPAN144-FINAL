@@ -95,8 +95,21 @@ const Generate = () => {
                       <Card.Text>
                         Resolution: {image.width} x {image.height}
                       </Card.Text>
+                      <Card.Text>{image.downloads}</Card.Text>
                       <Card.Text></Card.Text>
-                      <Card.Text></Card.Text>
+                      <Button
+                        variant="success"
+                        href={image.links.download}
+                        target="_blank"
+                        style={{
+                          fontWeight: "bold", // Makes the text bold.
+                          fontSize: "1.25rem", // Increases the font size for bigger text.
+                          padding: "10px 20px", // Increases padding for a larger button.
+                          backgroundColor: "green",
+                        }}
+                      >
+                        Download
+                      </Button>
 
                       {/* Conditional Instagram Icon/Button */}
                       {image.user.social &&
