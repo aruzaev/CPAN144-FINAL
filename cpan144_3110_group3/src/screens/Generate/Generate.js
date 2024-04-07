@@ -22,7 +22,7 @@ const Generate = () => {
   const navigate = useNavigate();
   const query = useQuery();
   const [term, setTerm] = useState(query.get("search") || "");
-  const [orientation, setOrientation] = useState(query.get("orientation") || "");
+  const [orientation, setOrientation] = useState(query.get("orientation") || "landscape");
   const [images, setImages] = useState([]);
 
   useEffect(() => {
@@ -36,6 +36,7 @@ const Generate = () => {
     const searchValue = e.currentTarget.elements.searchTerm.value;
     setTerm(searchValue);
     navigate(`?search=${searchValue}&orientation=${orientation}`);
+    handleSearch(searchValue, setImages, orientation);
   };
 
   return (
