@@ -1,73 +1,56 @@
 import "./Home.css";
 import React, { useState, useEffect, useRef } from "react";
+import fetchImages from "../../components/Global/unsplashAPI/unsplash_popular";
 
 function Home() {
-  const [recentSearches, setRecentSearches] = useState([]);
-  const wpRef = useRef(null);
+  const [images, setImages] = useState([]);
+  const imageLength = 540;
+  const imageWidth = 960;
+  const sliderRef = useRef(null);
 
   useEffect(() => {
-    // Fetch or initialize your recent searches here
-    // For example, from local storage or an API
-    const searches = ["Example Search 1", "Example Search 2"]; // Placeholder
-    setRecentSearches(searches);
+    fetchImages().then((data) => {
+      setImages(data);
+    });
   }, []);
 
   useEffect(() => {
-    const copy = wpRef.current.cloneNode(true);
-    wpRef.current.parentNode.appendChild(copy);
+    const slider = sliderRef.current;
+    let intervalId;
+
+    const scroll = () => {
+      if (slider) {
+        slider.scrollLeft += 1; //Scrolling speed here
+        if (slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
+          clearInterval(intervalId);
+          intervalId = setInterval(scroll, 0);
+          setImages((prevImages) => [...prevImages, ...prevImages]);
+        }
+      }
+    };
+    intervalId = setInterval(scroll, 0);
+
+    return () => {
+      clearInterval(intervalId);
+    };
   }, []);
 
   return (
     <div className="main-content">
       <h2>Popular Wallpapers</h2>
-      <div className="slider">
-        <div className="wp-slide" ref={wpRef}>
-          <img
-            src="https://pyxis.nymag.com/v1/imgs/d57/0bb/cacd6910aad2dcff81f39e5823a8737c7b-24-bongo-cat.rsocial.w1200.jpg"
-            height="500"
-            width="250"
-            alt=""
-          />
-        </div>
-        <div className="wp-slide">
-          <img
-            src="https://pyxis.nymag.com/v1/imgs/d57/0bb/cacd6910aad2dcff81f39e5823a8737c7b-24-bongo-cat.rsocial.w1200.jpg"
-            height="500"
-            width="250"
-            alt=""
-          />
-        </div>
-        <div className="wp-slide">
-          <img
-            src="https://pyxis.nymag.com/v1/imgs/d57/0bb/cacd6910aad2dcff81f39e5823a8737c7b-24-bongo-cat.rsocial.w1200.jpg"
-            height="500"
-            width="250"
-            alt=""
-          />
-        </div>
-        <div className="wp-slide">
-          <img
-            src="https://pyxis.nymag.com/v1/imgs/d57/0bb/cacd6910aad2dcff81f39e5823a8737c7b-24-bongo-cat.rsocial.w1200.jpg"
-            height="500"
-            width="250"
-            alt=""
-          />
-        </div>
-        <div className="wp-slide">
-          <img
-            src="https://pyxis.nymag.com/v1/imgs/d57/0bb/cacd6910aad2dcff81f39e5823a8737c7b-24-bongo-cat.rsocial.w1200.jpg"
-            height="500"
-            width="250"
-            alt=""
-          />
-        </div>
-        <div className="wp-slide">
-          <img
-            src="https://pyxis.nymag.com/v1/imgs/d57/0bb/cacd6910aad2dcff81f39e5823a8737c7b-24-bongo-cat.rsocial.w1200.jpg"
-            height="500"
-            width="250"
-            alt=""
-          />
+      <div className="slider-container" ref={sliderRef}>
+        <div className="slider">
+          {images.map((image, index) => (
+            <div key={index} className="wp-slide">
+              <img
+                src={image.urls.regular}
+                height={imageLength}
+                width={imageWidth}
+                style={{ objectFit: "cover" }}
+                alt=""
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>
