@@ -10,21 +10,45 @@ body {
   background: #f2f2f2;
 }
 
-@keyframes slide {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
+.slider-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-top: 0;
+  padding-bottom: 10;
 }
 
 .slider {
-  overflow: hidden;
-  padding: 60px 0;
+  padding: 10px 0;
   background: white;
+  display: inline-block;
+  vertical-align: top;
   white-space: nowrap;
   position: relative;
+}
+
+.wp-slide {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.wp-slide img {
+  height: 540px;
+  width: 960px;
+  object-fit: cover;
+}
+
+.slider-container::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-container {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-scrollbar: none;
+}
+
+.slider-container:hover {
+  overflow-x: auto;
 }
 
 .slider:before,
@@ -50,15 +74,3 @@ body {
 .slider:hover .wp-slide {
   animation-play-state: paused;
 }
-
-.wp-slide {
-  display: inline-block;
-  animation: 5s slide infinite linear;
-}
-
-.wp-slide img {
-  height: 100px;
-  margin: 0 40px;
-}
-
-/*test*/
