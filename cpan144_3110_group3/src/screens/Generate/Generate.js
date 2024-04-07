@@ -85,16 +85,18 @@ const Generate = () => {
                 <div className="info-container">
                   <Card style={{ width: "20rem" }}>
                     <Card.Body>
-                      <Card.Title>
-                        {image.alt_description || "Unnamed Image"}
-                      </Card.Title>
-                      <Card.Text>Photo by: {image.user.name}</Card.Text>
-                      <Card.Text>Likes: {image.likes}</Card.Text>
-                      <Card.Text>
-                        Resolution: {image.width} x {image.height}
-                      </Card.Text>
-                      <Card.Text>{image.downloads}</Card.Text>
-                      <Card.Text></Card.Text>
+                      <div className="info-container_text">
+                        <Card.Title>
+                          {image.alt_description || "Unnamed Image"}
+                        </Card.Title>
+                        <Card.Text>Photo by: {image.user.name}</Card.Text>
+                        <Card.Text>Likes: {image.likes}</Card.Text>
+                        <Card.Text>
+                          Resolution: {image.width} x {image.height}
+                        </Card.Text>
+                        <Card.Text>{image.downloads}</Card.Text>
+                        <Card.Text></Card.Text>
+                      </div>
                       <div className="socials-container">
                         {/* Conditional Instagram Icon/Button */}
                         {image.user.social &&
