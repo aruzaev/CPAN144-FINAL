@@ -20,7 +20,7 @@ function Home() {
 
     const scroll = () => {
       if (slider) {
-        slider.scrollLeft += 600; //Scrolling speed here
+        slider.scrollLeft += 6; //Scrolling speed here
         if (slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
           clearInterval(intervalId);
           intervalId = setInterval(scroll, 0);

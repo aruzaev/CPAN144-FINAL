@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import handleSearch from "../../components/Global/unsplashAPI/unsplash_Generate";
+
 import {
   Button,
   Form,
@@ -39,6 +40,8 @@ const Generate = () => {
     navigate(`?search=${searchValue}&orientation=${orientation}`);
     handleSearch(searchValue, setImages, orientation);
   };
+const downloadButton = (e) =>{
+}
 
   return (
     <Container className="generate-box-main">
@@ -50,10 +53,10 @@ const Generate = () => {
               <FormControl
                 id="searchTerm"
                 type="text"
-                placeholder="Search for images..."
+                placeholder="Search for image..."
                 defaultValue={term}
               />
-              
+
               <Form.Select
                 id="orientation"
                 value={orientation}
@@ -133,7 +136,7 @@ const Generate = () => {
                 <div className="button-container">
                   <Button
                     className="download-button"
-                    href={image.links.download}
+                    onClick={downloadButton}
                     target="_blank"
                     style={{
                       fontWeight: "bold", // Makes the text bold.

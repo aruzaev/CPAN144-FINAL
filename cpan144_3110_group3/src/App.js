@@ -7,7 +7,6 @@ import {
   Account,
   About,
   Generate,
-  View,
   Recent,
 } from "./screens";
 import NotFound from "./screens/NotFound/NotFound";
@@ -44,7 +43,6 @@ const App = () => {
               <Route path="/about" element={<About />} />
               <Route path="/generate" element={<Generate />} />
               <Route path="/recent" element={<Recent />} />
-              <Route path="/view" element={<View />} />
               <Route path="/signin" element={<Signin />} />
               <Route path="/signup" element={<Register />} />
             </Routes>
