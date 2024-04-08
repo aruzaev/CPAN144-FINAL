@@ -24,9 +24,6 @@ const DisplayRecents = () => {
 								/>
 								<div className="card-body">
 									<h5 className="card-title">Search term: {search.searchTerm}</h5>
-									<button type="button" className="btn btn-sm btn-outline-secondary">
-										View
-									</button>
 									<p className="text-muted">{getTimeElapsed(search.timestamp)}</p>
 								</div>
 							</div>
