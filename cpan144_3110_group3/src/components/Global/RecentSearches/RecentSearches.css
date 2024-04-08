@@ -1,22 +1,25 @@
-.recent-searches {
-  padding: 20px;
-  color: #fff;
+.card {
+  transition: transform 0.2s;
 }
 
-.recent-searches h2 {
-  color: #fff;
+.card:hover {
+  transform: scale(1.05);
 }
 
-.search-list {
-  list-style: none;
-  padding: 0;
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
 }
 
-.search-list li {
-  margin: 10px 0;
+.card-text a{
+  color: black;
+  font-size: 1.25rem;
 }
 
-.search-list li a {
-  color: #9dafff;
-  text-decoration: none;
+.btn-group {
+  margin-top: 10px;
+}
+
+.btn {
+  margin-right: 5px;
 }
