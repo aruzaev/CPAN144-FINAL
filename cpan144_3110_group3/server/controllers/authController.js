@@ -90,9 +90,17 @@ const getAccount = (req, res) => {
   }
 };
 
+const logout = (req, res) => {
+  // If using httpOnly cookies to store the token, clear the cookie
+  res.clearCookie("token");
+
+  res.json({ message: "Logged out successfully" });
+};
+
 module.exports = {
   test,
   registerUser,
   signInUser,
   getAccount,
+  logout,
 };
