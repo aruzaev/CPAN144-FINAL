@@ -19,6 +19,7 @@ import axios from "axios";
 import { Toaster } from "react-hot-toast";
 import { UserContextProvider } from "./components/context/userContext";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Dashboard from "./screens/Dashboard/Dashboard";
 
 axios.defaults.baseURL = "http://localhost:8000"; // our default url to be used for backend
 axios.defaults.withCredentials = true; // gives credentials to backend
@@ -39,7 +40,7 @@ function App() {
             <Routes>
               <Route path="*" element={<NotFound />} />
               <Route path="/" element={<Home />} />
-              <Route path="/account" element={<Account />} />
+              <Route path="/account" element={<Dashboard />} />
               <Route path="/about" element={<About />} />
               <Route path="/generate" element={<Generate />} />
               <Route path="/recent" element={<Recent />} />

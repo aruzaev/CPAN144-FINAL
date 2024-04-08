@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import SearchBar from "../SearchBar/SearchBar";
 import logo from "../../../../assets/logo.png";
+import { UserContext } from "../../../context/userContext";
 
 const Navbar = () => {
+  const { isAuthenticated } = useContext(UserContext);
+
   const [searchActive, setSearchActive] = useState(false);
 
   const handleSearch = (searchTerm) => {
@@ -26,7 +29,7 @@ const Navbar = () => {
         </div>
 
         <div className="navbar__links-container">
-        <div className="navbar__generate">
+          <div className="navbar__generate">
             <Link to="/recent">Recent</Link>
           </div>
         </div>
@@ -45,17 +48,22 @@ const Navbar = () => {
       </div>
       <div className="navbar__right">
         <div className="navbar__links-container2">
-          <Link to="/account">Account</Link>
-          <Link to="/about">About</Link>
+          {isAuthenticated ? (
+            <>
+              <Link to="/account">Account</Link>
+            </>
+          ) : (
+            <div className="navbar__sign">
+              <Link to="/signin" type="button">
+                Sign in
+              </Link>
+              <Link to="/signup" type="button">
+                Sign up
+              </Link>
+            </div>
+          )}
         </div>
-        <div className="navbar__sign">
-          <Link to="/signin" type="button">
-            Sign in
-          </Link>
-          <Link to="/signup" type="button">
-            Sign up
-          </Link>
-        </div>
+        <Link to="/about">About</Link>
       </div>
     </nav>
   );
