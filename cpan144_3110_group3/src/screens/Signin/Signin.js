@@ -28,7 +28,8 @@ const Signin = () => {
       } else {
         toast.success("Login successful! Welcome back");
         setData({});
-        window.location.reload();
+        navigate("/account", { replace: true });
+        window.location.reload(); // very hacky way to do this
       }
     } catch (error) {}
   };
