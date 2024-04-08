@@ -43,7 +43,7 @@ const Navbar = () => {
           <Link to="/generate">Generate</Link>
         </div>
       </div>
-      
+
       <div className="search__bar-container">
         <SearchBar
           onSearch={handleSearch}
@@ -57,8 +57,12 @@ const Navbar = () => {
           <Link to="/about">About</Link>
         </div>
         <div className="navbar__sign">
-          <a href="#signin">Sign in</a>
-          <button type="button">Sign up</button>
+          <Link to="/signin" type="button">
+            Sign in
+          </Link>
+          <Link to="/signup" type="button">
+            Sign up
+          </Link>
         </div>
       </div>
     </nav>
