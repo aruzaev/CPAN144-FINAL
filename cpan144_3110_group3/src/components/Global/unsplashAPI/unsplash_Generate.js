@@ -46,8 +46,12 @@ const handleSearch = async (searchTerm, setImages, orientation) => {
       <span className="visually-hidden">Loading....</span>
     </Spinner>
   ) : (
-    setImages([image]) 
-  );
+    image ? (
+      setImages([image]) 
+    ) : (
+      <div>No image found</div>
+    )
+  ); 
 };
 
 export default handleSearch;
