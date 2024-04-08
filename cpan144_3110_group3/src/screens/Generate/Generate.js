@@ -76,7 +76,7 @@ const Generate = () => {
                     alt={image.alt_description || "Image"}
                     className="m-2"
                     style={{
-                      width: "45%",
+                      width: "90%",
                       height: "auto",
                       objectFit: "cover",
                     }}
