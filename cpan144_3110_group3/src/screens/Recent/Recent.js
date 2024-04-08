@@ -20,8 +20,10 @@ const RecentSearches = () => {
     <div className="mt-5 ">
       <div className="container-lg">
         <div className="text-center">
+          <div class="div-1">
           <h2>Recent Photos</h2>
           <p>View Your Past Searches Here</p>
+          </div>
         </div>
         <div className="row align-items-center justify-content-center">
           {recentSearches.map((search, index) => (

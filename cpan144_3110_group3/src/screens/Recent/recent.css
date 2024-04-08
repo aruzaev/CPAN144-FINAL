@@ -3,14 +3,16 @@
   text-decoration-color: black;
 }
 
-paragraph-margin-bottem{
-  margin-bottom: 0;
-}
 p{
   color: black;
   padding:0;
   
 }
+
+.div-1 p{
+  color: white;
+}
+
 .body-color{
   color: black;
   text-decoration-color: black;
