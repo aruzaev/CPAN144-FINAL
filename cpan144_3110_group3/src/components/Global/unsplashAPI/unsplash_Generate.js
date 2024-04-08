@@ -10,7 +10,7 @@ const handleSearch = async (searchTerm, setImages, orientation) => {
   let loading = true;
 
   console.log(searchTerm);
-  if (searchTerm.trim() !== '') {
+  if (searchTerm.trim() !== '' ) {
     try {
       const response = await unsplash.search.getPhotos({
         query: searchTerm,
@@ -26,6 +26,7 @@ const handleSearch = async (searchTerm, setImages, orientation) => {
         loading = false;
 
         // Save the search term and image URL for recent and views
+        // sessionStorage.removeItem('recentSearches');
         const recentSearches = JSON.parse(sessionStorage.getItem('recentSearches')) || [];
         recentSearches.unshift({ searchTerm, imageUrl: image.urls.regular, image, timestamp: new Date().toISOString() });
         sessionStorage.setItem('recentSearches', JSON.stringify(recentSearches));
