@@ -1,29 +1,8 @@
 import React from "react";
-// import { Link } from "react-router-dom";
-// import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import { getRecentSearches, getTimeElapsed } from "../../components/Global/RecentSearches/RecentSearches";
 
-
-const RecentSearches = ({ searches }) => {
-  const recentSearches = JSON.parse(sessionStorage.getItem('recentSearches')) || [];
-  console.log(recentSearches)
-  const getTimeElapsed = (timestamp) => {
-    const now = new Date();
-    const searchTime = new Date(timestamp);
-    const elapsedSeconds = Math.floor((now - searchTime) / 1000);
-
-    if (elapsedSeconds < 60) {
-      return `${elapsedSeconds} seconds ago`;
-    } else if (elapsedSeconds < 3600) {
-      const minutes = Math.floor(elapsedSeconds / 60);
-      return `${minutes} minute${minutes !== 1 ? 's' : ''} ago`;
-    } else if (elapsedSeconds < 86400) {
-      const hours = Math.floor(elapsedSeconds / 3600);
-      return `${hours} hour${hours !== 1 ? 's' : ''} ago`;
-    } else {
-      const days = Math.floor(elapsedSeconds / 86400);
-      return `${days} day${days !== 1 ? 's' : ''} ago`;
-    }
-  };
+const RecentSearches = () => {
+  const recentSearches = getRecentSearches();
 
   return (
     <div className="mt-5 ">
@@ -52,7 +31,6 @@ const RecentSearches = ({ searches }) => {
       </div>
     </div>
   );
-
 };
 
 export default RecentSearches;
