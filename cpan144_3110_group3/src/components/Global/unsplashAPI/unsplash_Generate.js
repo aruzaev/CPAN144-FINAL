@@ -26,6 +26,7 @@ const handleSearch = async (searchTerm, setImages, orientation) => {
         loading = false;
 
         // Save the search term and image URL for recent and views
+        // sessionStorage.removeItem('recentSearches'); //Clears session data
         const recentSearches = JSON.parse(sessionStorage.getItem('recentSearches')) || [];
         recentSearches.unshift({ searchTerm, imageUrl: image.urls.regular, image, timestamp: new Date().toISOString() });
         sessionStorage.setItem('recentSearches', JSON.stringify(recentSearches));

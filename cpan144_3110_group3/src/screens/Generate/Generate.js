@@ -28,15 +28,13 @@ const Generate = () => {
   );
   const [images, setImages] = useState([]);
 
-  useEffect(() => {
-    if (term) {
-      handleSearch(term, setImages, orientation);
-    }
-  }, [term, orientation]);
-
   const handleButtonClick = (e) => {
     e.preventDefault();
     const searchValue = e.currentTarget.elements.searchTerm.value;
+    if (!searchValue.trim()) {
+      alert("Please enter a search term");
+      return;
+    }
     setTerm(searchValue);
     navigate(`?search=${searchValue}&orientation=${orientation}`);
     handleSearch(searchValue, setImages, orientation);
@@ -55,6 +53,7 @@ const Generate = () => {
                 placeholder="Search for images..."
                 defaultValue={term}
               />
+              
               <Form.Select
                 id="orientation"
                 value={orientation}
