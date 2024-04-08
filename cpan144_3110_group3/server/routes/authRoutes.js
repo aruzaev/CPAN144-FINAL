@@ -5,17 +5,18 @@ const {
   test,
   registerUser,
   signInUser,
+  getAccount,
 } = require("../controllers/authController");
 
 router.use(
   cors({
     credentials: true,
-    origin: "http://localhost:3005",
+    origin: "http://localhost:3000",
   })
 );
 
 router.get("/", test);
 router.post("/signup", registerUser);
 router.post("/signin", signInUser);
-
+router.get("/account", getAccount); // using get to get the accounts
 module.exports = router;

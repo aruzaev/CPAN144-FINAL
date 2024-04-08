@@ -54,16 +54,16 @@ const signInUser = async (req, res) => {
 
     const match = await comparePassword(password, user.password); // password from login body compared to user password
     if (match) {
-      // Corrected jwt.sign usage
+      // signing web token with all user information
       jwt.sign(
         { email: user.email, id: user._id, name: user.name },
         process.env.JWT_SECRET,
-        {}, // Options parameter should be inside the jwt.sign call
+        {},
         (err, token) => {
           if (err) {
-            throw err; // Handle or log the error appropriately
+            throw err;
           }
-          res
+          res // portraying cookies
             .cookie("token", token, { httpOnly: true, secure: true })
             .json({ message: "Login successful" });
         }
@@ -77,8 +77,22 @@ const signInUser = async (req, res) => {
   }
 };
 
+const getAccount = (req, res) => {
+  const { token } = req.cookies;
+  if (token) {
+    // verifing the token
+    jwt.verify(token, process.env.JWT_SECRET, {}, (err, user) => {
+      if (err) throw err;
+      res.json(user);
+    });
+  } else {
+    res.json(null);
+  }
+};
+
 module.exports = {
   test,
   registerUser,
   signInUser,
+  getAccount,
 };
