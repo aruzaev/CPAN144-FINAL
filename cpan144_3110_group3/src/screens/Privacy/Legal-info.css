@@ -1,0 +1,10 @@
+.legal-info {
+  color: white;
+  text-align: left;
+  background-color: black;
+  padding: 20px;
+}
+
+.legal-info p {
+  color: aliceblue;
+}

@@ -5,6 +5,22 @@
   scroll-behavior: smooth;
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.mainContent {
+  min-height: 50vh;
+}
+
+.gradient__bg {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 body {
   background: #3d3a4b;
 }

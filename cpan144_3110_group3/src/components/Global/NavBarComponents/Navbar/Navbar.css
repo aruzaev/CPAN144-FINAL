@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 60px;
 }
 
 .navbar__left {
@@ -47,7 +48,7 @@
   text-decoration: none;
 }
 
-.navbar__generate{
+.navbar__generate {
   display: flex;
   align-items: center;
   color: white;

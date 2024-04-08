@@ -40,8 +40,7 @@ const Generate = () => {
     navigate(`?search=${searchValue}&orientation=${orientation}`);
     handleSearch(searchValue, setImages, orientation);
   };
-const downloadButton = (e) =>{
-}
+  const downloadButton = (e) => {};
 
   return (
     <Container className="generate-box-main">
@@ -136,7 +135,7 @@ const downloadButton = (e) =>{
                 <div className="button-container">
                   <Button
                     className="download-button"
-                    onClick={downloadButton}
+                    href={image.links.download}
                     target="_blank"
                     style={{
                       fontWeight: "bold", // Makes the text bold.

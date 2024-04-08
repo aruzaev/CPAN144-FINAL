@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="footer__main">
       <div className="footer__left">
         <Link to="/privacy">Privacy Policy</Link>
-        <Link to="/terms">Terms of Use</Link>
+        <Link to="/termsofuse">Terms of Use</Link>
       </div>
 
       <div className="footer__center">

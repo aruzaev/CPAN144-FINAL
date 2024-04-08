@@ -20,6 +20,8 @@ import { Toaster } from "react-hot-toast";
 import { UserContextProvider } from "./components/context/userContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./screens/Dashboard/Dashboard";
+import Privacy from "./screens/Privacy/Privacy";
+import TermsOfUse from "./screens/TermsOfUse/TermsOfUse";
 
 axios.defaults.baseURL = "http://localhost:8000"; // our default url to be used for backend
 axios.defaults.withCredentials = true; // gives credentials to backend
@@ -37,18 +39,22 @@ const App = () => {
                 toastOptions={{ duration: 2000 }}
               />
             </div>
-            <Routes>
-              <Route path="*" element={<NotFound />} />
-              <Route path="/" element={<Home />} />
-              <Route path="/account" element={<Dashboard />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/generate" element={<Generate />} />
-              <Route path="/recent" element={<Recent />} />
-              <Route path="/signin" element={<Signin />} />
-              <Route path="/signup" element={<Register />} />
-            </Routes>
+            <div className="mainContent">
+              <Routes>
+                <Route path="*" element={<NotFound />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/account" element={<Dashboard />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/generate" element={<Generate />} />
+                <Route path="/recent" element={<Recent />} />
+                <Route path="/signin" element={<Signin />} />
+                <Route path="/signup" element={<Register />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/termsofuse" element={<TermsOfUse />} />
+              </Routes>
+            </div>
             <div className="gradient__bg">
-              <DisplayRecents/>
+              <DisplayRecents />
               <Footer />
             </div>
           </div>
@@ -56,5 +62,5 @@ const App = () => {
       </Router>
     </UserContextProvider>
   );
-}
+};
 export default App;
